@@ -12,7 +12,6 @@ ret, mask = cv2.threshold(img2gray, 1, 255, cv2.THRESH_BINARY)
 
 while True:
     ret, frame = cap.read()
-
     center_row = frame.shape[0] // 2
     center_col = frame.shape[1] // 2
     start_row = center_row - size // 2
@@ -21,10 +20,6 @@ while True:
     end_col = start_col + size
     # Region of Image (ROI), set to the middle of the screen
     roi = frame[start_row:end_row, start_col:end_col]
-
-    
-  
-
     roi[np.where(mask)] = 0
     roi += overlay
 
